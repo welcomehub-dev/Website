@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Welcome Hub</title>
+<meta name="description" content="Learn about Welcome Hub, a modern Windows desktop hub designed to bring your apps, tools, and personalization together.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b1020;
+    --surface: rgba(255,255,255,.055);
+    --border: rgba(255,255,255,.1);
+    --text: #f4f7ff;
+    --muted: #a5b2ca;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(42,105,220,.2), transparent 45%),
+        radial-gradient(ellipse at 85% 75%, rgba(100,65,220,.14), transparent 45%),
+        var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: linear-gradient(135deg,#77c8ff,#3977ff);
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 65px 24px 90px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 16px;
+    border: 1px solid rgba(105,160,255,.25);
+    background: rgba(70,130,255,.12);
+    border-radius: 50px;
+    color: #9bc4ff;
+    font-size: 13px;
+    margin-bottom: 23px;
+}
+
+h1 {
+    font-size: clamp(40px,6vw,68px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.gradient {
+    background: linear-gradient(90deg,#9bd5ff,#72a1ff,#b5a1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: auto;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.card {
+    padding: 34px;
+    border-radius: 25px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin-bottom: 22px;
+}
+
+.card h2 {
+    font-size: 26px;
+    margin-bottom: 14px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.mission {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.mission-card {
+    padding: 25px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.mission-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.mission-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.mission-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.value {
+    text-align: center;
+    padding: 22px 15px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.035);
+    border: 1px solid var(--border);
+}
+
+.value h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.value p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.cta {
+    text-align: center;
+    padding: 42px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,rgba(65,130,255,.16),rgba(125,90,255,.12));
+    border: 1px solid var(--border);
+    margin-top: 25px;
+}
+
+.cta h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: var(--muted);
+    margin-bottom: 23px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 13px;
+    background: linear-gradient(135deg,#63b6ff,#3975ff);
+    color: white;
+    font-weight: 700;
+    transition: transform .2s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer a {
+    color: #9bc4ff;
+}
+
+@media(max-width:700px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .mission,
+    .values {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding-top: 40px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    h1 {
+        letter-spacing: -1px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="brand">
+        <div class="brand-icon">⌂</div>
+        Welcome Hub
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="updates.html">Updates</a>
+        <a href="about.html">About</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="badge">✦ Get to know us</div>
+
+        <h1>
+            Welcome to<br>
+            <span class="gradient">Welcome Hub.</span>
+        </h1>
+
+        <p>
+            A modern Windows companion designed to bring your
+            applications, useful tools, and personalization
+            together in one convenient desktop experience.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>What is Welcome Hub?</h2>
+        <p>
+            Welcome Hub is a Windows desktop application that
+            provides a central place to access your installed
+            applications, explore useful Windows features,
+            and customize the application's appearance.
+        </p>
+        <br>
+        <p>
+            Instead of navigating through different places
+            to find everyday tools, Welcome Hub brings
+            everything together in a simple interface.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>Our purpose</h2>
+        <p>
+            We believe that using your computer should feel
+            organized, convenient, and enjoyable.
+            Welcome Hub aims to make everyday Windows
+            navigation easier by putting useful shortcuts
+            and customization options in one place.
+        </p>
+
+        <div class="mission">
+
+            <div class="mission-card">
+                <div class="mission-icon">▦</div>
+                <h3>Everything together</h3>
+                <p>
+                    Bring applications and useful Windows
+                    tools into one central hub.
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">✦</div>
+                <h3>Your experience</h3>
+                <p>
+                    Customize the appearance and make
+                    Welcome Hub feel like your own.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>What makes it special?</h2>
+
+        <div class="values">
+
+            <div class="value">
+                <h3>Simple</h3>
+                <p>A straightforward desktop experience.</p>
+            </div>
+
+            <div class="value">
+                <h3>Organized</h3>
+                <p>Useful tools and applications together.</p>
+            </div>
+
+            <div class="value">
+                <h3>Personal</h3>
+                <p>Appearance settings you can customize.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to try Welcome Hub?</h2>
+        <p>
+            Explore the features and get the latest release.
+        </p>
+
+        <a href="download.html" class="button">
+            Download Welcome Hub →
+        </a>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 Welcome Hub. Built for a better Windows experience.</p>
+
+    <p style="margin-top:10px;">
+        <a href="index.html">Home</a> ·
+        <a href="download.html">Download</a> ·
+        <a href="features.html">Features</a> ·
+        <a href="faq.html">FAQ</a> ·
+        <a href="updates.html">Updates</a> ·
+        <a href="about.html">About</a>
+    </p>
+</footer>
+
+</body>
+</html>

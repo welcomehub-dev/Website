@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features | Welcome Hub</title>
+<meta name="description" content="Discover the features of Welcome Hub for Windows.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b1020;
+    --surface: rgba(255,255,255,.055);
+    --border: rgba(255,255,255,.1);
+    --text: #f4f7ff;
+    --muted: #a5b2ca;
+    --blue: #66aaff;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(42,105,220,.2), transparent 45%),
+        radial-gradient(ellipse at 85% 75%, rgba(100,65,220,.14), transparent 45%),
+        var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: linear-gradient(135deg,#77c8ff,#3977ff);
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 26px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 24px 90px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 16px;
+    border: 1px solid rgba(105,160,255,.25);
+    background: rgba(70,130,255,.12);
+    border-radius: 50px;
+    color: #9bc4ff;
+    font-size: 13px;
+    margin-bottom: 23px;
+}
+
+h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.gradient {
+    background: linear-gradient(90deg,#9bd5ff,#72a1ff,#b5a1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 30px;
+    border-radius: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform .2s, border-color .2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(110,170,255,.4);
+}
+
+.feature-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+    background: rgba(80,140,255,.15);
+    margin-bottom: 22px;
+}
+
+.feature-card h2 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.feature-number {
+    display: block;
+    color: #79b5ff;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 9px;
+    letter-spacing: 1px;
+}
+
+.bottom-card {
+    text-align: center;
+    margin-top: 55px;
+    padding: 42px 25px;
+    border-radius: 26px;
+    background: linear-gradient(135deg,rgba(65,130,255,.16),rgba(125,90,255,.12));
+    border: 1px solid var(--border);
+}
+
+.bottom-card h2 {
+    font-size: 29px;
+    margin-bottom: 12px;
+}
+
+.bottom-card p {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 25px;
+    background: linear-gradient(135deg,#63b6ff,#3975ff);
+    color: white;
+    font-weight: 700;
+    border-radius: 13px;
+    transition: transform .2s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer a {
+    color: #9bc4ff;
+}
+
+@media(max-width:700px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding-top: 40px;
+    }
+
+    h1 {
+        letter-spacing: -1px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="brand">
+        <div class="brand-icon">⌂</div>
+        Welcome Hub
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="features.html">Features</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="badge">✦ Explore Welcome Hub</div>
+
+        <h1>
+            Everything you need.<br>
+            <span class="gradient">All in one place.</span>
+        </h1>
+
+        <p>
+            Welcome Hub brings your favorite apps, useful Windows tools,
+            and personalization options together in one convenient desktop experience.
+        </p>
+    </section>
+
+    <section class="features">
+
+        <article class="feature-card">
+            <div class="feature-icon">⌂</div>
+            <span class="feature-number">FEATURE 01</span>
+            <h2>Home</h2>
+            <p>
+                Start from one central place. Get a quick introduction to
+                Welcome Hub and access your everyday experience.
+            </p>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">▦</div>
+            <span class="feature-number">FEATURE 02</span>
+            <h2>App Library</h2>
+            <p>
+                Discover your installed applications in one searchable library.
+                Find your apps and launch them without searching through menus.
+            </p>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">⌕</div>
+            <span class="feature-number">FEATURE 03</span>
+            <h2>Explore</h2>
+            <p>
+                Quickly access useful Windows locations and tools,
+                including File Explorer, Settings, Task Manager, and more.
+            </p>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">⚙</div>
+            <span class="feature-number">FEATURE 04</span>
+            <h2>Personalize</h2>
+            <p>
+                Make Welcome Hub feel like yours. Change its theme,
+                choose accent colors, adjust the background, or restore defaults.
+            </p>
+        </article>
+
+    </section>
+
+    <section class="bottom-card">
+        <h2>Ready to explore Welcome Hub?</h2>
+        <p>
+            Get the app and bring your Windows experience together.
+        </p>
+        <a href="download.html" class="button">
+            Download Welcome Hub →
+        </a>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 Welcome Hub. Built for a better Windows experience.</p>
+    <p style="margin-top:10px;">
+        <a href="index.html">Home</a> ·
+        <a href="download.html">Download</a> ·
+        <a href="features.html">Features</a>
+    </p>
+</footer>
+
+</body>
+</html>

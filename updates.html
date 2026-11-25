@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Updates | Welcome Hub</title>
+<meta name="description" content="Explore Welcome Hub updates, release notes, new features, and improvements.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b1020;
+    --surface: rgba(255,255,255,.055);
+    --border: rgba(255,255,255,.1);
+    --text: #f4f7ff;
+    --muted: #a5b2ca;
+    --blue: #66aaff;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(42,105,220,.2), transparent 45%),
+        radial-gradient(ellipse at 85% 75%, rgba(100,65,220,.14), transparent 45%),
+        var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: linear-gradient(135deg,#77c8ff,#3977ff);
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 65px 24px 90px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 16px;
+    border: 1px solid rgba(105,160,255,.25);
+    background: rgba(70,130,255,.12);
+    border-radius: 50px;
+    color: #9bc4ff;
+    font-size: 13px;
+    margin-bottom: 23px;
+}
+
+h1 {
+    font-size: clamp(40px,6vw,65px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin-bottom: 17px;
+}
+
+.gradient {
+    background: linear-gradient(90deg,#9bd5ff,#72a1ff,#b5a1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.latest-card {
+    padding: 32px;
+    border-radius: 25px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 65px rgba(0,0,0,.18);
+}
+
+.latest-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.latest-top h2 {
+    font-size: 25px;
+}
+
+.status {
+    color: #91c7ff;
+    background: rgba(75,140,255,.14);
+    border: 1px solid rgba(100,160,255,.2);
+    padding: 6px 13px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.version {
+    font-size: 42px;
+    font-weight: 750;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+}
+
+.release-subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.release-section {
+    margin-top: 25px;
+}
+
+.release-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.release-section ul {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.release-section li {
+    color: var(--muted);
+    font-size: 14px;
+    display: flex;
+    gap: 11px;
+}
+
+.bullet {
+    color: #83baff;
+    font-weight: 700;
+}
+
+.download-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 23px;
+    border-radius: 13px;
+    background: linear-gradient(135deg,#63b6ff,#3975ff);
+    color: white;
+    font-weight: 700;
+    transition: transform .2s;
+}
+
+.download-button:hover {
+    transform: translateY(-3px);
+}
+
+.history {
+    margin-top: 50px;
+}
+
+.history h2 {
+    font-size: 27px;
+    margin-bottom: 22px;
+}
+
+.release {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.release summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 21px 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    font-weight: 650;
+}
+
+.release summary::-webkit-details-marker {
+    display: none;
+}
+
+.release summary::after {
+    content: "+";
+    color: #83baff;
+    font-size: 23px;
+}
+
+.release[open] summary::after {
+    content: "−";
+}
+
+.release-content {
+    padding: 0 23px 23px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.release-content p {
+    margin-bottom: 10px;
+}
+
+.release-tag {
+    color: #9bc4ff;
+    font-size: 13px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer a {
+    color: #9bc4ff;
+}
+
+@media(max-width:700px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container {
+        padding-top: 40px;
+    }
+
+    .latest-card {
+        padding: 24px;
+    }
+
+    h1 {
+        letter-spacing: -1px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="brand">
+        <div class="brand-icon">⌂</div>
+        Welcome Hub
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="updates.html">Updates</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="badge">✦ What's New?</div>
+
+        <h1>
+            Always getting<br>
+            <span class="gradient">better.</span>
+        </h1>
+
+        <p>
+            Follow the latest Welcome Hub releases, discover improvements,
+            and see what's new in every version.
+        </p>
+    </section>
+
+    <section class="latest-card">
+
+        <div class="latest-top">
+            <h2>Latest release</h2>
+            <span class="status">● STABLE</span>
+        </div>
+
+        <div class="version">v1.0.0</div>
+
+        <p class="release-subtitle">
+            Welcome Hub · First official release
+        </p>
+
+        <div class="release-section">
+            <h3>What's included</h3>
+
+            <ul>
+                <li><span class="bullet">✦</span> Home dashboard</li>
+                <li><span class="bullet">✦</span> Searchable App Library</li>
+                <li><span class="bullet">✦</span> Windows Explore shortcuts</li>
+                <li><span class="bullet">✦</span> Personalization settings</li>
+                <li><span class="bullet">✦</span> Light and dark themes</li>
+                <li><span class="bullet">✦</span> Custom accent and background colors</li>
+            </ul>
+        </div>
+
+        <div class="release-section">
+            <h3>Release information</h3>
+            <ul>
+                <li><span class="bullet">✓</span> First official stable release</li>
+                <li><span class="bullet">✓</span> Standalone Windows executable</li>
+                <li><span class="bullet">✓</span> Windows 10 and later</li>
+            </ul>
+        </div>
+
+        <a href="download.html" class="download-button">
+            Download latest version →
+        </a>
+
+    </section>
+
+    <section class="history">
+        <h2>Release history</h2>
+
+        <details class="release" open>
+            <summary>
+                <span>Welcome Hub v1.0.0</span>
+                <span class="release-tag">Initial release</span>
+            </summary>
+
+            <div class="release-content">
+                <p>
+                    The first official release of Welcome Hub.
+                </p>
+                <p>
+                    Introduces the Home dashboard, App Library,
+                    Explore section, and Personalize settings.
+                </p>
+            </div>
+        </details>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 Welcome Hub. Built for a better Windows experience.</p>
+    <p style="margin-top:10px;">
+        <a href="index.html">Home</a> ·
+        <a href="download.html">Download</a> ·
+        <a href="features.html">Features</a> ·
+        <a href="faq.html">FAQ</a> ·
+        <a href="updates.html">Updates</a>
+    </p>
+</footer>
+
+</body>
+</html>

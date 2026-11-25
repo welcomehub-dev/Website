@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | Welcome Hub</title>
+<meta name="description" content="Frequently asked questions and help for Welcome Hub.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b1020;
+    --surface: rgba(255,255,255,.055);
+    --border: rgba(255,255,255,.1);
+    --text: #f4f7ff;
+    --muted: #a5b2ca;
+    --blue: #66aaff;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(42,105,220,.2), transparent 45%),
+        radial-gradient(ellipse at 85% 75%, rgba(100,65,220,.14), transparent 45%),
+        var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: linear-gradient(135deg,#77c8ff,#3977ff);
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 23px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 65px 24px 90px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 16px;
+    border: 1px solid rgba(105,160,255,.25);
+    background: rgba(70,130,255,.12);
+    border-radius: 50px;
+    color: #9bc4ff;
+    font-size: 13px;
+    margin-bottom: 23px;
+}
+
+h1 {
+    font-size: clamp(40px,6vw,65px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin-bottom: 17px;
+}
+
+.gradient {
+    background: linear-gradient(90deg,#9bd5ff,#72a1ff,#b5a1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.faq-list {
+    display: grid;
+    gap: 15px;
+}
+
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 22px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    font-size: 23px;
+    color: #83baff;
+    transition: transform .2s;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item summary:hover {
+    color: #9bc4ff;
+}
+
+.answer {
+    padding: 0 24px 24px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.answer p {
+    margin-bottom: 12px;
+}
+
+.answer ol,
+.answer ul {
+    padding-left: 22px;
+    margin: 12px 0;
+}
+
+.answer li {
+    margin-bottom: 9px;
+}
+
+.answer strong {
+    color: #f4f7ff;
+}
+
+.code {
+    display: inline-block;
+    padding: 4px 9px;
+    background: rgba(90,145,255,.14);
+    color: #a8ceff;
+    border-radius: 7px;
+    font-family: Consolas, monospace;
+}
+
+.note {
+    padding: 14px 16px;
+    background: rgba(70,130,255,.1);
+    border-left: 3px solid #68aaff;
+    border-radius: 9px;
+    margin-top: 14px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer a {
+    color: #9bc4ff;
+}
+
+@media(max-width:700px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container {
+        padding-top: 40px;
+    }
+
+    h1 {
+        letter-spacing: -1px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="brand">
+        <div class="brand-icon">⌂</div>
+        Welcome Hub
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html">FAQ</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="badge">✦ Help Center</div>
+
+        <h1>
+            Frequently asked<br>
+            <span class="gradient">questions.</span>
+        </h1>
+
+        <p>
+            Find answers to common questions about installing,
+            using, and customizing Welcome Hub.
+        </p>
+    </section>
+
+    <section class="faq-list">
+
+        <details class="faq-item">
+            <summary>What is Welcome Hub?</summary>
+            <div class="answer">
+                <p>
+                    Welcome Hub is a Windows desktop application that
+                    brings useful app shortcuts, Windows tools, and
+                    personalization settings together in one place.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How do I download Welcome Hub?</summary>
+            <div class="answer">
+                <p>
+                    Visit the <strong>Download</strong> page and click
+                    the Download Welcome Hub button.
+                </p>
+                <p>
+                    Once the executable finishes downloading, open
+                    the file to launch the application.
+                </p>
+                <p>
+                    <a href="download.html" style="color:#9bc4ff;">
+                        Go to Download →
+                    </a>
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How can I make Welcome Hub start automatically?</summary>
+            <div class="answer">
+                <p>
+                    You can configure Windows to launch Welcome Hub
+                    automatically whenever you sign in.
+                </p>
+
+                <ol>
+                    <li>Locate your downloaded <strong>WelcomeHub.exe</strong> file.</li>
+                    <li>Right-click it and select <strong>Create shortcut</strong>.</li>
+                    <li>Press <strong>Win + R</strong> on your keyboard.</li>
+                    <li>Type <span class="code">shell:startup</span> and press Enter.</li>
+                    <li>Copy the Welcome Hub shortcut into the Startup folder.</li>
+                    <li>Restart or sign out and sign back in to test it.</li>
+                </ol>
+
+                <div class="note">
+                    <strong>Tip:</strong> Put the shortcut in the Startup
+                    folder, not the original EXE itself. Keep the EXE in
+                    its permanent location so the shortcut continues working.
+                </div>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How do I change the appearance?</summary>
+            <div class="answer">
+                <p>
+                    Open Welcome Hub and navigate to the
+                    <strong>Personalize</strong> section.
+                </p>
+                <p>
+                    There you can choose a theme, change the accent
+                    color, adjust the background, or reset your settings.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How does the App Library work?</summary>
+            <div class="answer">
+                <p>
+                    The App Library discovers applications available
+                    through your Windows Start Menu and displays them
+                    in a searchable library.
+                </p>
+                <p>
+                    Select an application to launch it.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>What can I find in Explore?</summary>
+            <div class="answer">
+                <p>
+                    Explore provides shortcuts to useful Windows
+                    locations and tools, including:
+                </p>
+                <ul>
+                    <li>File Explorer</li>
+                    <li>Downloads</li>
+                    <li>This PC</li>
+                    <li>Windows Settings</li>
+                    <li>Task Manager</li>
+                    <li>Display and Sound settings</li>
+                    <li>Storage and System Information</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Where are my personalization settings saved?</summary>
+            <div class="answer">
+                <p>
+                    Welcome Hub stores its settings in your Windows
+                    user profile, inside its application settings folder.
+                </p>
+                <p>
+                    The settings are stored separately from the
+                    application executable.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How do I update Welcome Hub?</summary>
+            <div class="answer">
+                <p>
+                    Visit the official Welcome Hub Download page
+                    and check for the latest published release.
+                </p>
+                <p>
+                    Download the newest executable when an update
+                    becomes available.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>What should I do if Welcome Hub does not open?</summary>
+            <div class="answer">
+                <p>
+                    First, make sure the download completed successfully.
+                    Try opening the executable again.
+                </p>
+                <p>
+                    If the problem continues, check whether Windows
+                    security software has blocked the application.
+                </p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Which Windows versions are supported?</summary>
+            <div class="answer">
+                <p>
+                    Welcome Hub is designed for Windows 10 and later.
+                </p>
+            </div>
+        </details>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 Welcome Hub. Built for a better Windows experience.</p>
+    <p style="margin-top:10px;">
+        <a href="index.html">Home</a> ·
+        <a href="download.html">Download</a> ·
+        <a href="features.html">Features</a> ·
+        <a href="faq.html">FAQ</a>
+    </p>
+</footer>
+
+</body>
+</html>

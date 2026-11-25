@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Welcome Hub</title>
+    <meta name="description" content="Download Welcome Hub for Windows. Explore your computer with a modern, convenient hub.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b1020;
+            --surface: rgba(255,255,255,0.055);
+            --border: rgba(255,255,255,0.1);
+            --text: #f4f7ff;
+            --muted: #a5b2ca;
+            --blue: #66aaff;
+            --blue2: #367dff;
+        }
+
+        body {
+            background:
+                radial-gradient(ellipse at 15% 10%, rgba(42,105,220,.20), transparent 45%),
+                radial-gradient(ellipse at 85% 70%, rgba(100,65,220,.14), transparent 45%),
+                var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+            padding: 22px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #77c8ff, #3977ff);
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 0 25px rgba(80,140,255,.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 26px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+            padding: 60px 24px 80px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid rgba(105,160,255,.25);
+            background: rgba(70,130,255,.12);
+            color: #9bc4ff;
+            border-radius: 50px;
+            padding: 7px 16px;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 6vw, 68px);
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .gradient {
+            background: linear-gradient(90deg, #9bd5ff, #72a1ff, #b5a1ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 17px;
+            color: var(--muted);
+        }
+
+        .download-card {
+            max-width: 750px;
+            margin: 0 auto 35px;
+            padding: 36px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 25px 80px rgba(0,0,0,.22);
+        }
+
+        .app-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .app-logo {
+            width: 76px;
+            height: 76px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #5abaff, #4676ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 0 30px rgba(75,130,255,.2);
+            flex-shrink: 0;
+        }
+
+        .app-info h2 {
+            font-size: 25px;
+            margin-bottom: 4px;
+        }
+
+        .app-info p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .version {
+            color: #9bc4ff;
+        }
+
+        .download-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #63b6ff, #3975ff);
+            border-radius: 17px;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            transition: transform .2s, box-shadow .2s;
+            box-shadow: 0 10px 30px rgba(55,120,255,.25);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(55,120,255,.4);
+        }
+
+        .download-button:active {
+            transform: scale(.98);
+        }
+
+        .download-icon {
+            font-size: 23px;
+        }
+
+        .download-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .detail {
+            padding: 16px;
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 16px;
+        }
+
+        .detail-label {
+            color: var(--muted);
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .section {
+            max-width: 750px;
+            margin: 45px auto 0;
+        }
+
+        .section h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .steps {
+            display: grid;
+            gap: 15px;
+        }
+
+        .step {
+            display: flex;
+            gap: 18px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--surface);
+        }
+
+        .step-number {
+            width: 38px;
+            height: 38px;
+            border-radius: 13px;
+            background: rgba(75,135,255,.15);
+            color: #9bc4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .requirements {
+            padding: 26px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .requirements ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .requirements li {
+            color: var(--muted);
+            display: flex;
+            gap: 12px;
+        }
+
+        .check {
+            color: #78b9ff;
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 80px;
+        }
+
+        .footer a {
+            color: #9bc4ff;
+        }
+
+        @media(max-width: 650px) {
+            .navbar {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .container {
+                padding-top: 35px;
+            }
+
+            .download-card {
+                padding: 24px;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .app-info {
+                align-items: flex-start;
+            }
+
+            .app-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                border-radius: 17px;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <div class="brand-icon">⌂</div>
+            Welcome Hub
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="downloads.html">Downloads</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="badge">✦ Official Release</div>
+            <h1>Meet your new<br><span class="gradient">Windows Hub.</span></h1>
+            <p>
+                A simple, modern place to access your apps, explore your computer,
+                and personalize your Windows experience.
+            </p>
+        </section>
+
+        <section class="download-card">
+
+            <div class="app-info">
+                <div class="app-logo">⌂</div>
+                <div>
+                    <h2>Welcome Hub</h2>
+                    <p>Windows desktop application</p>
+                    <p class="version">Version 1.0.0 · Stable release</p>
+                </div>
+            </div>
+
+            <!-- REPLACE THE LINK BELOW WITH YOUR ACTUAL GITHUB EXE DOWNLOAD URL -->
+            <a class="download-button"
+               href="https://github.com/welcomehub-dev/welhub.repo/releases/download/v1.0.0/WelcomeHub.exe"
+               download>
+                <span class="download-icon">↓</span>
+                Download Welcome Hub
+            </a>
+
+            <p class="download-note">
+                Download the official Windows executable.
+            </p>
+
+            <div class="details">
+                <div class="detail">
+                    <div class="detail-label">Version</div>
+                    <div class="detail-value">1.0.0</div>
+                </div>
+
+                <div class="detail">
+                    <div class="detail-label">Platform</div>
+                    <div class="detail-value">Windows</div>
+                </div>
+
+                <div class="detail">
+                    <div class="detail-label">Release</div>
+                    <div class="detail-value">Stable</div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2>Getting started</h2>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Download the app</h3>
+                        <p>Click the download button above to download WelcomeHub.exe.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Open the file</h3>
+                        <p>Find the downloaded file and open it to launch Welcome Hub.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Start exploring</h3>
+                        <p>Discover your apps, open useful Windows tools, and customize your experience.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>System requirements</h2>
+
+            <div class="requirements">
+                <ul>
+                    <li><span class="check">✓</span> Windows 10 or later</li>
+                    <li><span class="check">✓</span> A Windows PC</li>
+                    <li><span class="check">✓</span> Internet connection for downloading</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Welcome Hub. Built for a better Windows experience.</p>
+        <p style="margin-top:10px;">
+            <a href="index.html">Home</a> ·
+            <a href="downloads.html">Downloads</a>
+        </p>
+    </footer>
+
+</body>
+</html>

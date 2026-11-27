@@ -1,0 +1,369 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080f20">
+    <title>Setup Guide — Welcome Hub</title>
+    <meta name="description" content="Learn how to download, launch, and personalize Welcome Hub on Windows.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #080f20;
+            color: #f5f7ff;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(8,15,32,0.85);
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #5b8cff;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #aebbd3;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .nav-button, .download-button {
+            background: #3978ff;
+            padding: 10px 19px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .nav-button:hover, .download-button:hover {
+            background: #5590ff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 105px 20px 75px;
+            background: radial-gradient(ellipse at top, rgba(45,103,255,0.22), transparent 65%);
+        }
+
+        .announcement {
+            display: inline-block;
+            border: 1px solid rgba(91,140,255,0.3);
+            background: rgba(91,140,255,0.1);
+            color: #91b1ff;
+            padding: 7px 17px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 65px);
+            line-height: 1.12;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #72a0ff, #a58aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #aab6cc;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+            padding: 25px 22px 90px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .section-heading h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #9eabc3;
+        }
+
+        .step {
+            display: flex;
+            gap: 25px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.09);
+            background: linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
+            border-radius: 20px;
+            transition: 0.25s;
+        }
+
+        .step:hover {
+            border-color: rgba(91,140,255,0.45);
+            transform: translateY(-3px);
+        }
+
+        .step-number {
+            min-width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(67,119,255,0.17);
+            color: #8eafff;
+            border: 1px solid rgba(91,140,255,0.3);
+            border-radius: 14px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .step-content h3 {
+            font-size: 21px;
+            margin-bottom: 9px;
+        }
+
+        .step-content p {
+            color: #aab6cc;
+            margin-bottom: 12px;
+        }
+
+        .step-content ul {
+            padding-left: 22px;
+            color: #b9c5da;
+        }
+
+        .step-content li {
+            margin-bottom: 5px;
+        }
+
+        .note {
+            margin-top: 15px;
+            padding: 13px 16px;
+            background: rgba(57,120,255,0.09);
+            border-left: 3px solid #5188ff;
+            border-radius: 8px;
+            color: #bdcced;
+            font-size: 14px;
+        }
+
+        .closing {
+            text-align: center;
+            margin-top: 65px;
+            padding: 45px 25px;
+            border: 1px solid rgba(91,140,255,0.2);
+            background: linear-gradient(135deg, rgba(49,102,255,0.16), rgba(130,87,255,0.08));
+            border-radius: 22px;
+        }
+
+        .closing h2 {
+            font-size: 29px;
+            margin-bottom: 12px;
+        }
+
+        .closing p {
+            color: #aab6cc;
+            margin-bottom: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #71809b;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .step {
+                padding: 22px 17px;
+                gap: 15px;
+            }
+
+            .step-content h3 {
+                font-size: 18px;
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="navbar">
+    <a href="index.html" class="logo">WHApp<span>.</span></a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="download.html">Download</a>
+        <a href="setup.html">Setup</a>
+        <a href="about.html">About</a>
+        <a href="updates.html">Updates</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+    <a href="download.html" class="nav-button">Download ↗</a>
+</header>
+<main>
+    <section class="hero">
+        <div class="announcement">✦ Your Welcome Hub journey starts here</div>
+        <h1>Get started with<br><span>Welcome Hub.</span></h1>
+        <p>New to Welcome Hub? Follow this simple guide to download, launch, and personalize your Windows experience.</p>
+    </section>
+    <section class="container">
+        <div class="section-heading">
+            <h2>Setup Guide</h2>
+            <p>Everything you need to get started, step by step.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+                <h3>Download Welcome Hub</h3>
+                <p>Visit our Download page and get the latest available version of Welcome Hub for Windows.</p>
+                <a href="download.html" class="download-button">Go to Download →</a>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">02</div>
+            <div class="step-content">
+                <h3>Open the application</h3>
+                <p>Once the download is complete, locate WelcomeHub.exe and open it to launch Welcome Hub.</p>
+                <ul>
+                    <li>Find the downloaded EXE file.</li>
+                    <li>Double-click WelcomeHub.exe.</li>
+                    <li>Wait for Welcome Hub to open.</li>
+                </ul>
+                <div class="note">Download the application only from the official Welcome Hub website.</div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+                <h3>Explore the Home page</h3>
+                <p>Start with Home to discover the main features and shortcuts available in Welcome Hub.</p>
+                <ul>
+                    <li>Discover your Welcome Hub experience.</li>
+                    <li>Find useful shortcuts.</li>
+                    <li>Navigate to other sections.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">04</div>
+            <div class="step-content">
+                <h3>Explore your App Library</h3>
+                <p>Open App Library to discover applications available on your Windows computer.</p>
+                <ul>
+                    <li>Browse installed applications.</li>
+                    <li>Use the search feature to find an app.</li>
+                    <li>Launch applications directly from the library.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">05</div>
+            <div class="step-content">
+                <h3>Discover Explore</h3>
+                <p>Use Explore to access convenient Windows tools and system locations from one place.</p>
+                <ul>
+                    <li>Open File Explorer.</li>
+                    <li>Access Windows Settings.</li>
+                    <li>Find system utilities and information.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">06</div>
+            <div class="step-content">
+                <h3>Personalize your experience</h3>
+                <p>Make Welcome Hub feel like yours with its personalization options.</p>
+                <ul>
+                    <li>Choose between light and dark themes.</li>
+                    <li>Select an accent color.</li>
+                    <li>Choose a background color.</li>
+                    <li>Restore the default appearance whenever you want.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">07</div>
+            <div class="step-content">
+                <h3>Start Welcome Hub with Windows</h3>
+                <p>Want Welcome Hub to open automatically when you sign in? You can add a shortcut to the Windows Startup folder.</p>
+                <ul>
+                    <li>Find WelcomeHub.exe in its permanent location.</li>
+                    <li>Right-click it and select Create shortcut.</li>
+                    <li>Press Win + R on your keyboard.</li>
+                    <li>Type shell:startup and press Enter.</li>
+                    <li>Move the shortcut into the Startup folder.</li>
+                </ul>
+                <div class="note">This step is optional. Keep the original EXE in a permanent location so the shortcut continues to work.</div>
+            </div>
+        </div>
+        <div class="closing">
+            <h2>You're ready to go!</h2>
+            <p>Explore your applications, discover useful tools, and make Windows feel more like yours.</p>
+            <a href="index.html" class="download-button">Back to Home →</a>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>© 2026 WHApp. All rights reserved.</p>
+</footer>
+</body>
+              </html>
